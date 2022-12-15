@@ -13,6 +13,6 @@ namespace Shop_Models.LearnBlazorModels
         public double Price { get; set; }
         public bool IsActive { get; set; }
 
-        public IEnumerable<Demo_ProductProp> ProductProperties { get; set; }
+        public List<Demo_ProductProp> ProductProperties { get; set; }
     }
 }
