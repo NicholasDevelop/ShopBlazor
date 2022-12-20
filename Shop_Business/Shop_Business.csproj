@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Shop_DataAccess\Shop_DataAccess.csproj" />
     <ProjectReference Include="..\Shop_Models\Shop_Models.csproj" />
   </ItemGroup>
