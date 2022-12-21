@@ -7,12 +7,17 @@ using Shop_DataAccess.Data;
 using ShopWeb_Server.Data;
 using ShopWeb_Server.Service;
 using ShopWeb_Server.Service.IService;
+using Syncfusion.Blazor;
+
+
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Nzg2NjQwQDMyMzAyZTM0MmUzME84OHE1aGJQUHFxSEdEc3dWbWNncEZKZmtNUnpiQU95WGE1ZzV5Y1dYTDA9");
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSyncfusionBlazor();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

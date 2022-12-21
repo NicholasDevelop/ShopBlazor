@@ -34,7 +34,7 @@
     [Parameter]
     public RenderFragment SecondFragment { get; set; }
 
-    private async Task FavouriteUpdated(ChangeEventArgs e)
+    private async Task FavouriteUpdated(Microsoft.AspNetCore.Components.ChangeEventArgs e)
     {
         await OnFavouriteUpdated.InvokeAsync((bool)e.Value);
     }
