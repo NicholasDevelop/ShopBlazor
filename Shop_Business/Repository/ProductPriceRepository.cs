@@ -55,9 +55,16 @@ namespace Shop_Business.Repository
             return new ProductPriceDTO();
         }
 
-        public async Task<IEnumerable<ProductPriceDTO>> GetAll()
+        public async Task<IEnumerable<ProductPriceDTO>> GetAll(int? id = null)
         {
-            return _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices.Include(u => u.Product));
+            if (id != null && id > 0)
+            {
+                return _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices.Where(u => u.ProductId == id));
+            }
+            else
+            {
+                return _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices);
+            }
         }
 
         public async Task<ProductPriceDTO> Update(ProductPriceDTO objDTO)
