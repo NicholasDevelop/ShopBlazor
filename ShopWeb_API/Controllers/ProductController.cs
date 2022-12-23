@@ -42,7 +42,7 @@ namespace ShopWeb_API.Controllers
                     StatusCode = StatusCodes.Status404NotFound
                 });
             }
-            return Ok(product);
+            return Ok(await product);
         }
     }
 }
