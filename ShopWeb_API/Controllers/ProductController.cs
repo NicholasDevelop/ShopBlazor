@@ -33,7 +33,7 @@ namespace ShopWeb_API.Controllers
                 });
             }
 
-            var product = _productRepository.Get(productId.Value);
+            var product = await _productRepository.Get(productId.Value);
             if (product == null)
             {
                 return BadRequest(new ErrorModelDTO()
@@ -42,7 +42,7 @@ namespace ShopWeb_API.Controllers
                     StatusCode = StatusCodes.Status404NotFound
                 });
             }
-            return Ok(await product);
+            return Ok(product);
         }
     }
 }
