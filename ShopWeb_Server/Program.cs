@@ -8,6 +8,7 @@ using ShopWeb_Server.Data;
 using ShopWeb_Server.Service;
 using ShopWeb_Server.Service.IService;
 using Syncfusion.Blazor;
+using Microsoft.AspNetCore.Identity;
 
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Nzg2NjQwQDMyMzAyZTM0MmUzME84OHE1aGJQUHFxSEdEc3dWbWNncEZKZmtNUnpiQU95WGE1ZzV5Y1dYTDA9");
@@ -22,6 +23,9 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductPriceRepository, ProductPriceRepository>();
@@ -47,5 +51,6 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+app.UseAuthentication();;
 
 app.Run();
