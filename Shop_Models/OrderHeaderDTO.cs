@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop_DataAccess
+namespace Shop_Models
 {
     public class OrderHeaderDTO
     {
